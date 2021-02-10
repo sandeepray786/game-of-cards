@@ -11,9 +11,8 @@ public class Trails {
 			for(int i=0;i<4;i++)
 					if(cardGot.get(i).get(1)%13==cardGot.get(i).get(0)%13 && cardGot.get(i).get(0)%13==cardGot.get(i).get(2)%13)
 					{
-						if(cardGot.get(i).get(1)%13==0)
-							return i;
-						else if(cardGot.get(i).get(1)%13>max)
+						
+						if(cardGot.get(i).get(1)%13>max)
 							res= i;
 							max=cardGot.get(i).get(1)%13;
 					}
