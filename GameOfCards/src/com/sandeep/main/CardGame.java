@@ -19,6 +19,7 @@ public class CardGame {
     		ArrayList<Integer> playerCards = new ArrayList<Integer>();
             for(int j=0;j<3;j++)
             	playerCards.add(list.get(i*3 + j));
+            Collections.sort(playerCards);
             drawnCards.add(playerCards);
         }
    
@@ -28,9 +29,11 @@ public class CardGame {
 	public static int checkAnswer(ArrayList<ArrayList<Integer>> cardGot) {
 		int winnerIndex=-1;
 		
-//		if(checktrail(cardGot))
-//			winnerIndex=findTrail(cardGot);
-//		else if(checkSequence(cardGot))
+		winnerIndex=Trails.checkTrails(cardGot);
+		
+		if(winnerIndex!=-1)
+			return winnerIndex;
+		
 //			winnerIndex=findSequence(cardGot);
 //		else if(checkPair(cardGot))
 //			winnerIndex=findPair(cardGot);
