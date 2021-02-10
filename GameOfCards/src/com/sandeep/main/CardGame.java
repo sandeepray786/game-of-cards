@@ -11,21 +11,21 @@ public class CardGame {
 		// Selects 12 cards from a deck of 52 cards and returns them;
 
 		ArrayList<ArrayList<Integer>> drawnCards = new ArrayList<>();
-		ArrayList<Integer> list = new ArrayList<Integer>();
+//		ArrayList<Integer> list = new ArrayList<Integer>();
 
 		for (int i = 1; i < 53; i++) {
-			list.add(new Integer(i));
+			listOfCard.add(new Integer(i));
 		}
-		Collections.shuffle(list);
+		Collections.shuffle(listOfCard);
 
 		for (int i = 0; i < 4; i++) {
 			ArrayList<Integer> playerCards = new ArrayList<Integer>();
 			for (int j = 0; j < 3; j++)
-				playerCards.add(list.get(i * 3 + j));
+				playerCards.add(listOfCard.get(i * 3 + j));
 			Collections.sort(playerCards);
 			drawnCards.add(playerCards);
 		}
-		listOfCard = list;
+//		listOfCard = list;
 		return drawnCards;
 	}
 
