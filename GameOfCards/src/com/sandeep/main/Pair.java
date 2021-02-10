@@ -15,6 +15,7 @@ public class Pair {
 			int card1=cardGot.get(i).get(0)%13;
 			int card2=cardGot.get(i).get(1)%13;
 			int card3=cardGot.get(i).get(2)%13;
+			//change this for king card1 value is 0 and for ACE is 1
 			if(card1==card2||card2==card3)
 			{
 				res.put(i,card2);
