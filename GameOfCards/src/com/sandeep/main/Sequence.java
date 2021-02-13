@@ -16,7 +16,11 @@ public class Sequence {
 				{
 					res.put(i, cardGot.get(i).get(2)%13);
 					int maxNow=res.get(i);
-					if(max>maxNow)
+					if(maxNow==1)
+						max=maxNow;
+					if(maxNow==0 && max!=1)
+						max=maxNow;
+					if(max<maxNow && max!=0 && max!=1)
 						max=maxNow;
 				}
 		//check repeat

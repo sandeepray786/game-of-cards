@@ -6,13 +6,19 @@ public class SuddenDeath {
 	public static int checkSuddenDeath(ArrayList<String> nameOfPlayers,ArrayList<Integer> abc,ArrayList<Integer> restOfCard,int start) 
 	{	
 		System.out.println("Here is a tie. Time for sudden death...");
+		if(start>52)
+		{
+			System.out.println("Sorry... No more Cards.. Please play again...");
+			return -1;
+		}
+		
 
 		int res=-1;
 		ArrayList<Integer> newCard= new ArrayList<>();
 		int n= abc.size();
 		for(int i=0;i<n;i++)
 		{
-			newCard.add(restOfCard.get(start+i)%13);
+			newCard.add(restOfCard.get(start+i));
 		}
 		System.out.println("New Cards picked by each players are:");
 		
@@ -21,41 +27,29 @@ public class SuddenDeath {
 
 		
 		int max=-1;
-		int countZero=0;
 		int count=0;
 		for(int i=0;i<newCard.size();i++)
 		{
-			if(newCard.get(i)>max)
+			int card=newCard.get(i)%13;
+			if(card==1)
+				max=card;
+			else if(card==0 && max!=1)
+				max=card;
+			else if(card>max && max!=0 && max!=1)
 				max=newCard.get(i);
 		}
+		ArrayList<Integer> ans= new ArrayList<>();
 		for(int i=0;i<newCard.size();i++)
-		{
-			if(newCard.get(i)==1)
-			{
-				countZero++;
-				continue;
-			}
-			if(newCard.get(i)==max)
-			{
-				count++;
-			}
-		}
-		if(countZero>0)
-		{
-			if(countZero==1)
-			{
-				System.out.println("By the means of Sudden Death");
-				return abc.get(searchelement(newCard,1));
-			}
-			else
-				return SuddenDeath.checkSuddenDeath(nameOfPlayers,abc,restOfCard,start+n);
-		}
+			if(newCard.get(i)%13==max)
+				ans.add(abc.get(searchelement(newCard,max)));
+		
+		count=ans.size();
 		if(count>0)
 		{
 			if(count==1)
 			{
 				System.out.println("By the means of Sudden Death");
-				res= abc.get(searchelement(newCard,max));
+				res= ans.get(0);
 			}
 			else
 				res= SuddenDeath.checkSuddenDeath(nameOfPlayers,abc,restOfCard,start+n);
@@ -67,7 +61,7 @@ public class SuddenDeath {
 	private static int searchelement(ArrayList<Integer> newCard, int z) {
 		int n= newCard.size();
 		for(int i=0;i<n;i++)
-			if(z==newCard.get(i))
+			if(z==newCard.get(i)%13)
 				return i;
 		return -1;
 	}

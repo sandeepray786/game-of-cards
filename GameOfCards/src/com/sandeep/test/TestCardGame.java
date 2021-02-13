@@ -27,11 +27,19 @@ class TestCardGame {
 	@Test
 	void testCheckAnswer() {
 		
+		
 	}
 
 	@Test
 	void testGetCardNames() {
-//		fail("Not yet implemented");
+		assertEquals("King of Spades", CardGame.getCardNames(13));
+		assertEquals("Ace of Spades", CardGame.getCardNames(1));
+		assertEquals("Queen of Spades", CardGame.getCardNames(12));
+		assertEquals("King of Diamonds", CardGame.getCardNames(52));
+		assertEquals("Ace of Hearts", CardGame.getCardNames(27));
+		assertEquals("King of Hearts", CardGame.getCardNames(39));
+		assertEquals("6 of Diamonds", CardGame.getCardNames(45));
+
 	}
 
 }

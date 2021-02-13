@@ -19,13 +19,21 @@ public class Pair {
 			if(card1==card2||card2==card3)
 			{
 				res.put(i,card2);
-				if(card2>max)
+				if(card2==1)
+					max=1;
+				else if(card2==0 && max!=1)
+					max=0;
+				else if(card2>max && (max!=1 && max!=0))
 					max=card2;
 			}
 			else if(card1==card3)
 			{
 				res.put(i,card1);
-				if(card1>max)
+				if(card1==1)
+					max=1;
+				else if(card1==0 && max!=1)
+					max=0;
+				else if(card1>max && (max!=1 && max!=0))
 					max=card1;
 			}
 			

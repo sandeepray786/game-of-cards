@@ -46,7 +46,7 @@ public class CardGame {
 			return abc.get(0);
 			}
 			else
-				return SuddenDeath.checkSuddenDeath(nameOfPlayers,abc, restOfCard, 13);
+				return SuddenDeath.checkSuddenDeath(nameOfPlayers,abc, restOfCard, 12);
 		abc = Pair.checkPair(cardGot);
 		if (abc.size() != 0)
 			if (abc.size() == 1)
@@ -55,7 +55,7 @@ public class CardGame {
 				return abc.get(0);
 			}
 			else
-				return SuddenDeath.checkSuddenDeath(nameOfPlayers,abc, restOfCard, 13);
+				return SuddenDeath.checkSuddenDeath(nameOfPlayers,abc, restOfCard, 12);
 
 		abc = TopCard.checkTopCard(cardGot);
 		if (abc.size() != 0)
@@ -65,7 +65,7 @@ public class CardGame {
 				return abc.get(0);
 			}
 			else
-				return SuddenDeath.checkSuddenDeath(nameOfPlayers,abc, restOfCard, 13);
+				return SuddenDeath.checkSuddenDeath(nameOfPlayers,abc, restOfCard, 12);
 
 		return winnerIndex;
 	}
